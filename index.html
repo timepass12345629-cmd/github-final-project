@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Interest Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="calculator-card">
+      <header class="header">
+        <div class="icon-badge">💰</div>
+        <h1>Simple Interest Calculator</h1>
+        <p class="subtitle">Quickly compute interest and total investment return</p>
+      </header>
+
+      <form id="interest-form" class="calc-form">
+        <div class="form-group">
+          <label for="principal">Principal Amount ($)</label>
+          <div class="input-wrapper">
+            <span class="currency-symbol">$</span>
+            <input type="number" id="principal" name="principal" placeholder="e.g. 10000" min="0" step="any" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="label-with-value">
+            <label for="rate">Annual Interest Rate (%)</label>
+            <span id="rate-display" class="badge">10.0%</span>
+          </div>
+          <div class="slider-wrapper">
+            <input type="range" id="rate" name="rate" min="1" max="25" step="0.25" value="10">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="years">Time Period (Years)</label>
+          <select id="years" name="years" required>
+            <option value="1">1 Year</option>
+            <option value="2">2 Years</option>
+            <option value="3">3 Years</option>
+            <option value="4">4 Years</option>
+            <option value="5" selected>5 Years</option>
+            <option value="10">10 Years</option>
+            <option value="15">15 Years</option>
+            <option value="20">20 Years</option>
+            <option value="25">25 Years</option>
+            <option value="30">30 Years</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button type="button" id="compute-btn" class="primary-btn">Calculate Interest</button>
+          <button type="reset" id="reset-btn" class="secondary-btn">Reset</button>
+        </div>
+      </form>
+
+      <div id="results-panel" class="results-panel hidden">
+        <div class="result-highlight">
+          <span class="result-label">Simple Interest Earned</span>
+          <span id="result-interest" class="result-value">$0.00</span>
+        </div>
+        <div class="result-breakdown">
+          <div class="breakdown-item">
+            <span>Principal</span>
+            <strong id="result-principal">$0.00</strong>
+          </div>
+          <div class="breakdown-item">
+            <span>Total Maturity Amount</span>
+            <strong id="result-total">$0.00</strong>
+          </div>
+          <div class="breakdown-item">
+            <span>Target Year</span>
+            <strong id="result-target-year">--</strong>
+          </div>
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <p>Formula: <code>SI = (P × R × T) / 100</code></p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
